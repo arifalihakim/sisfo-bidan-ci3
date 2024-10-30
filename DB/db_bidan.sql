@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Jul 2024 pada 16.50
+-- Waktu pembuatan: 30 Okt 2024 pada 06.09
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 7.4.33
 
@@ -40,10 +40,12 @@ CREATE TABLE `obat` (
 --
 
 INSERT INTO `obat` (`kdObat`, `nmObat`, `hargaObat`, `stok`, `ket`) VALUES
-('O01', 'Vitonal F', 12000, 6, ''),
-('O02', 'Calcid', 10000, 5, ''),
-('O03', 'Asam Folat', 15000, 10, ''),
-('O04', 'DHA', 13000, 10, '');
+('O01', 'Vitonal F', 12000, 1, ''),
+('O03', 'Asam Folat', 15000, 5, ''),
+('O04', 'DHA', 13000, 10, ''),
+('O05', 'Nutrimax Vitamin D3 Tablet', 50000, 0, 'suplemen kesehatan yang mengandung vitamin D3. Suplemen ini digunakan untuk membantu kebutuhan vitamin D dengan cepat padalansia, ibu hamil atau menyusui.'),
+('O06', 'Calcid', 15000, 0, ''),
+('O07', 'Imboost Force', 28000, 40, '');
 
 -- --------------------------------------------------------
 
@@ -72,7 +74,8 @@ INSERT INTO `pasien` (`noRm`, `noIdentitas`, `nmSuami`, `nmPasien`, `tglLahir`, 
 ('RM000003', '3232332323232323', 'Den Bagus Dirgantara', 'Martanti', '1997-03-02', '08587880598', 'Gemolong,Sragen', '2024-03-03 10:03:20'),
 ('RM000004', '31231231231231231', 'Jokowi', 'Iriana', '1960-12-12', '000999888776', 'Semanngi, Solo', '2024-05-24 13:23:20'),
 ('RM000005', '1234567891234561', 'Gibran', 'Istri Gibran', '1991-11-03', '0981091091098', 'Solo', '2024-05-25 08:03:20'),
-('RM000006', '3325566677', 'dika', 'lina', '1999-06-03', '089767883344', 'solo', '2024-06-05 09:03:20');
+('RM000006', '3325566677', 'dika', 'lina', '1999-06-03', '089767883344', 'solo', '2024-06-05 09:03:20'),
+('RM000007', '3313111203020001', 'Muhammad Arif Ali Hakim', 'Bojone Arip', '2002-03-12', '076542435253', 'Dalon,  001/011', '2024-10-30 07:06:05');
 
 -- --------------------------------------------------------
 
@@ -105,7 +108,7 @@ CREATE TABLE `periksa` (
 --
 
 INSERT INTO `periksa` (`idPeriksa`, `noRegistrasi`, `noRm`, `tglPeriksa`, `sistol`, `diastol`, `bb`, `uk`, `tfu`, `letak`, `djj`, `keluhan`, `tindakLanjut`, `diagnosa`, `imunisasi`, `idUser`, `created`) VALUES
-('PR2024071500001', 'ID2024071500001', 'RM000002', '2024-07-15', '120', '90', 66, '5', '', '', '', 'nbnbnbnb', 'mmnmnmn', 'bnbnbnb', '', 20, '2024-07-15 21:40:06');
+('PR2024102800001', 'ID2024102800001', 'RM000001', '2024-10-28', '110', '90', 66, '5', '', '', '', 'Mual muntah', 'rawat jalan beri obat oral', 'G1O0A0', '', 20, '2024-10-28 02:02:03');
 
 -- --------------------------------------------------------
 
@@ -125,7 +128,7 @@ CREATE TABLE `pr_obat` (
 --
 
 INSERT INTO `pr_obat` (`idPeriksa`, `kdObat`, `jumlahObat`, `aturan`) VALUES
-('PR2024071500001', 'O01', 3, '1 x sehari sehabis makan');
+('PR2024102800001', 'O01', 1, '1 x sehari sehabis makan');
 
 -- --------------------------------------------------------
 
@@ -145,7 +148,50 @@ CREATE TABLE `registrasi` (
 --
 
 INSERT INTO `registrasi` (`noRegistrasi`, `noRm`, `tglKunjungan`, `idUser`) VALUES
-('ID2024071500001', 'RM000002', '2024-07-15 21:38:01', 20);
+('ID2024102800001', 'RM000001', '2024-10-28 01:28:09', 20);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stok_obat_keluar`
+--
+
+CREATE TABLE `stok_obat_keluar` (
+  `id` int(11) NOT NULL,
+  `kdObat` varchar(50) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `tanggal` datetime DEFAULT current_timestamp(),
+  `idPeriksa` char(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `stok_obat_keluar`
+--
+
+INSERT INTO `stok_obat_keluar` (`id`, `kdObat`, `jumlah`, `tanggal`, `idPeriksa`) VALUES
+(2, 'O01', 1, '2024-10-28 02:02:26', 'PR2024102800001');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stok_obat_masuk`
+--
+
+CREATE TABLE `stok_obat_masuk` (
+  `id` int(11) NOT NULL,
+  `kdObat` varchar(50) DEFAULT NULL,
+  `jumlah` int(11) DEFAULT NULL,
+  `tanggal` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `stok_obat_masuk`
+--
+
+INSERT INTO `stok_obat_masuk` (`id`, `kdObat`, `jumlah`, `tanggal`) VALUES
+(1, 'O01', 1, '2024-10-28 01:27:40'),
+(2, 'O01', 1, '2024-10-28 01:55:30'),
+(3, 'O07', 40, '2024-10-28 09:47:22');
 
 -- --------------------------------------------------------
 
@@ -162,18 +208,20 @@ CREATE TABLE `user` (
   `password` varchar(128) NOT NULL,
   `role` tinyint(4) NOT NULL,
   `active` tinyint(4) NOT NULL,
-  `image` varchar(100) DEFAULT NULL
+  `image` varchar(100) DEFAULT NULL,
+  `last_activity` datetime DEFAULT NULL,
+  `is_online` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`idUser`, `fullName`, `alamat`, `noTelp`, `username`, `password`, `role`, `active`, `image`) VALUES
-(1, 'Super Admin', '', '012345678901', 'superadmin', '$2y$10$wT4vVN.Ior9mTCVy3OBhjuPNuqzeC0b9O1Dv4JDvHhiWd3I5xFfCu', 1, 1, 'foto-240507-23ef28048f.jpg'),
-(20, 'Bidan Satu', 'Jl. Amarilis', '085878805855', 'bidan', '$2y$10$M7CenMkaX5jB3oYHVVAKoOD6QUU5zOMy6Kiw2IIjPYw3En0sp/gpy', 2, 1, 'foto-240322-6b244e47ed.png'),
-(21, 'Bidan Dua', 'Laweyan', '087465738945', 'bidan2', '$2y$10$wFNeUjyg.CzqZYVqmOZQNuxUF6OXGWNKRZaEc9ayqEdO.NWST5Tzm', 2, 1, 'foto-240322-e46a69cd32.png'),
-(22, 'TESTES', 'TESTETSETS', '12121212121212', 'tes', '$2y$10$MU4LALQAfT0s2hpF89An8O9lPeNU22Yk42/y2ANTodaTWoMMZH6u2', 2, 1, NULL);
+INSERT INTO `user` (`idUser`, `fullName`, `alamat`, `noTelp`, `username`, `password`, `role`, `active`, `image`, `last_activity`, `is_online`) VALUES
+(1, 'Super Admin', '', '012345678901', 'superadmin', '$2y$10$fIA3CZfiLwBIZt4nPlg2IuTsTZaZ2yJv5QEFn4bXb/QQ5XCEDGvnm', 1, 1, 'foto-240507-23ef28048f.jpg', '2024-10-30 00:31:39', 0),
+(20, 'Bidan Satu', 'Jl. Amarilis', '085878805855', 'bidan', '$2y$10$M7CenMkaX5jB3oYHVVAKoOD6QUU5zOMy6Kiw2IIjPYw3En0sp/gpy', 2, 1, 'foto-240322-6b244e47ed.png', '2024-10-30 00:18:48', 0),
+(21, 'Bidan Dua', 'Laweyan', '087465738945', 'bidan2', '$2y$10$wFNeUjyg.CzqZYVqmOZQNuxUF6OXGWNKRZaEc9ayqEdO.NWST5Tzm', 2, 1, 'foto-240322-e46a69cd32.png', '2024-10-30 01:55:01', 0),
+(22, 'TESTES', 'TESTETSETS', '12121212121212', 'tes', '$2y$10$MU4LALQAfT0s2hpF89An8O9lPeNU22Yk42/y2ANTodaTWoMMZH6u2', 2, 1, NULL, '2024-10-24 13:34:28', 0);
 
 --
 -- Indexes for dumped tables
@@ -216,6 +264,18 @@ ALTER TABLE `registrasi`
   ADD KEY `idUser` (`idUser`);
 
 --
+-- Indeks untuk tabel `stok_obat_keluar`
+--
+ALTER TABLE `stok_obat_keluar`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `stok_obat_masuk`
+--
+ALTER TABLE `stok_obat_masuk`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -224,6 +284,18 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `stok_obat_keluar`
+--
+ALTER TABLE `stok_obat_keluar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `stok_obat_masuk`
+--
+ALTER TABLE `stok_obat_masuk`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
