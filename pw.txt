@@ -1,0 +1,11 @@
+//SUPERADMIN
+username : superadmin
+password : superadmin
+
+//BIDAN
+username :bidan
+password :bidan1
+
+//BIDAN
+username :bidan2
+password :bidan2

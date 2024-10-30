@@ -1,0 +1,83 @@
+body {
+    padding-top: 8rem;
+    font-family: Arial;
+    color: black;
+}
+.header {
+    top: 10px;
+    right: 20px;
+    position: absolute;
+    margin-bottom: 20px;
+}
+.header img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+.header h1 {
+    top: 10px;
+    center: 20px;
+    font-size: 24px;
+    margin: 0;
+    color: pink; /* Ubah warna teks menjadi pink */
+}
+.header p {
+    margin: 5px 0;
+}
+.line-title {
+    border: 0;
+    border-style: inset;
+    border-top: 2px solid #000; /* tebalkan line */
+}
+.line-title-thin {
+    border: 0;
+    border-style: inset;
+    border-top: 1px solid #000; /* garis tipis */
+}
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table th,
+.table td {
+    padding: 8px;
+    vertical-align: top;
+    border: 1px solid #dee2e6;
+    white-space: nowrap; /* tetapkan isi tabel agar tidak turun ke bawah */
+}
+.table th {
+    background-color: #f2f2f2;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #fff;
+}
+@media print {
+    .table th,
+    .table td {
+        border-color: #000 !important;
+    }
+}
+button {
+    display: block;
+    width: 100px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+
+/* Menyembunyikan tombol cetak saat halaman dicetak */
+@media print {
+    button {
+        display: none;
+    }
+}
