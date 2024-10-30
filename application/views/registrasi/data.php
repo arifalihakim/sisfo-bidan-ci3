@@ -67,9 +67,6 @@
                   <?php  } ?>
                 </td>
                 <td width="8%" class="text-center aksi-column">
-                  <!-- <a href="<?= site_url('registrasi/delete/'.$row->noRegistrasi); ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Yakin ingin hapus?');">
-                    <i class="fas fa-trash-alt"></i>
-                  </a> -->
                   <button class="btn btn-outline-danger btn-sm delete-btn" data-href="<?= base_url('registrasi/delete/'.$row->noRegistrasi); ?>">
                     <i class="fas fa-trash-alt"></i>
                   </button>

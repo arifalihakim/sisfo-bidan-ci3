@@ -59,7 +59,6 @@
               </div>
               <div class="col-md-8">
                 <div class="form-group" id="aturanObatContainer">
-                  <!-- Input aturan obat akan ditambahkan di sini -->
                   <?php 
                   $aturanValues = $old_input['aturan'] ?? set_value('aturan');
                   if ($aturanValues) {
@@ -90,22 +89,19 @@
   });
 
   $(document).ready(function() {
-    // Fungsi untuk menambahkan input jumlah obat dan aturan pakai berdasarkan obat yang dipilih
     $('#kdObat').change(function() {
-      $('#jumlahObatContainer').empty(); // Menghapus input sebelumnya
-      $('#aturanObatContainer').empty(); // Menghapus input sebelumnya
-      // Loop melalui opsi yang dipilih
+      $('#jumlahObatContainer').empty();
+      $('#aturanObatContainer').empty();
       $('#kdObat option:selected').each(function() {
-        var kdObat = $(this).val(); // Mendapatkan nilai opsi yang dipilih
-        var nmObat = $(this).text(); // Mendapatkan teks opsi yang dipilih
+        var kdObat = $(this).val();
+        var nmObat = $(this).text();
         var inputField = '<input type="number" name="jumlahObat[]" class="form-control mt-2" min="1" placeholder="Jumlah untuk ' + nmObat + '" data-kdobat="' + kdObat + '">';
         var aturanField = '<input type="text" name="aturan[]" class="form-control mt-2" placeholder="Aturan obat untuk ' + nmObat + '">';
-        $('#jumlahObatContainer').append(inputField); // Menambahkan input jumlah obat
-        $('#aturanObatContainer').append(aturanField); // Menambahkan input aturan pakai obat
+        $('#jumlahObatContainer').append(inputField);
+        $('#aturanObatContainer').append(aturanField);
       });
     });
-
-    // Memicu peristiwa perubahan saat halaman dimuat untuk mengisi kembali jumlah obat dan aturan pakai
+    
     <?php if (!empty($old_input['kdObat'])): ?>
         <?php foreach ($old_input['kdObat'] as $index => $kdObat): ?>
             $('#kdObat').find('option[value="<?= $kdObat ?>"]').prop('selected', true);

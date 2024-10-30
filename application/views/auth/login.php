@@ -19,7 +19,7 @@
 
         $(document).ready(function() {
             loadCaptcha();
-            setInterval(loadCaptcha, 60000); // Refresh captcha every 1 minute
+            setInterval(loadCaptcha, 60000);
         });
     </script>
 </head>
@@ -35,7 +35,6 @@
                 </p>
             </a>
         </div>
-        <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
                 <?=$this->session->flashdata('msg')?>

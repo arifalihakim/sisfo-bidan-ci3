@@ -67,7 +67,7 @@
       </div>
     </section>
 
-    <!-- Modal untuk menambah stok -->
+
 <div class="modal fade" id="modalTambahStok" tabindex="-1" role="dialog" aria-labelledby="modalTambahStokLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -108,7 +108,6 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- Tab Navigation -->
         <ul class="nav nav-tabs" id="stokTab" role="tablist">
           <li class="nav-item">
             <a class="nav-link active" id="stokMasuk-tab" data-toggle="tab" href="#stokMasuk" role="tab" aria-controls="stokMasuk" aria-selected="true">Stok Obat Masuk</a>
@@ -118,18 +117,15 @@
           </li>
         </ul>
 
-        <!-- Tab Content -->
         <div class="tab-content" id="stokTabContent">
           <!-- Stok Obat Masuk Tab -->
           <div class="tab-pane fade show active" id="stokMasuk" role="tabpanel" aria-labelledby="stokMasuk-tab">
-            <!-- Month Filter for Stok Obat Masuk -->
             <div class="d-flex align-items-center mt-3 mb-2">
               <label for="filterMasukMonth">Filter Bulan : </label>
               <input type="month" id="filterMasukMonth" class="form-control" style="width: 200px;">
               <button id="filterMasukButton" class="btn btn-primary">Cari</button>
             </div>
             
-            <!-- Table for Stok Obat Masuk -->
             <div class="table-responsive mt-3">
               <table class="table table-bordered" id="datatable_stokMasuk">
                 <thead>
@@ -156,16 +152,13 @@
             </div>
           </div>
 
-          <!-- Stok Obat Keluar Tab -->
           <div class="tab-pane fade" id="stokKeluar" role="tabpanel" aria-labelledby="stokKeluar-tab">
-            <!-- Month Filter for Stok Obat Keluar -->
             <div class="d-flex align-items-center mt-3 mb-2">
               <label for="filterKeluarMonth">Filter Bulan :</label>
               <input type="month" id="filterKeluarMonth" class="form-control" style="width: 200px;">
               <button id="filterKeluarButton" class="btn btn-primary">Cari</button>
             </div>
             
-            <!-- Table for Stok Obat Keluar -->
             <div class="table-responsive mt-3">
               <table class="table table-bordered" id="datatable_stokKeluar">
                 <thead>
@@ -205,7 +198,6 @@
 
 
 <script>
-  // Menangani data yang ditampilkan di modal saat dibuka
   $('#modalTambahStok').on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget);
     var kdObat = button.data('kdobat');
@@ -216,14 +208,12 @@
     modal.find('#jumlah').val(1);
   });
 
-  // Menangani submit form tambah stok dengan SweetAlert
   $('#formTambahStok').on('submit', function(event) {
-    event.preventDefault(); // Mencegah submit default
+    event.preventDefault();
 
     var kdObat = $('#kdObat').val();
     var jumlah = $('#jumlah').val();
 
-    // Menampilkan SweetAlert konfirmasi
     Swal.fire({
       title: 'Konfirmasi',
       text: 'Apakah Anda yakin ingin menambah stok untuk obat dengan ID ' + kdObat + ' sebanyak ' + jumlah + '?',
@@ -235,8 +225,7 @@
       cancelButtonText: 'Batal'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Jika ya, kirim form
-        this.submit(); // Submit form secara manual
+        this.submit();
       }
     });
   });
@@ -244,7 +233,6 @@
 
 <script>
   $(document).ready(function () {
-  // Initialize the DataTables
   var tableMasuk = $('#datatable_stokMasuk').DataTable({
     "paging": true,
     "lengthChange": false,
@@ -267,36 +255,30 @@
     "pageLength": 10
   });
 
-  // Filter function for Stok Obat Masuk by month
   $('#filterMasukButton').on('click', function() {
     var selectedMonth = $('#filterMasukMonth').val();
-    
-    // If no month selected, reset the filter
+
     if (!selectedMonth) {
       tableMasuk.search('').draw();
       return;
     }
 
-    // Format the selected month to match the YYYY-MM format
     tableMasuk.rows().every(function() {
-      var rowDate = $(this.node()).find('td').eq(3).text().trim(); // Date column
-      var rowMonth = rowDate.slice(0, 7); // Extract YYYY-MM format
+      var rowDate = $(this.node()).find('td').eq(3).text().trim();
+      var rowMonth = rowDate.slice(0, 7);
       var match = rowMonth === selectedMonth;
       $(this.node()).toggle(match);
     });
   });
 
-  // Filter function for Stok Obat Keluar by month
   $('#filterKeluarButton').on('click', function() {
     var selectedMonth = $('#filterKeluarMonth').val();
     
-    // If no month selected, reset the filter
     if (!selectedMonth) {
       tableKeluar.search('').draw();
       return;
     }
 
-    // Format the selected month to match the YYYY-MM format
     tableKeluar.rows().every(function() {
       var rowDate = $(this.node()).find('td').eq(4).text().trim(); // Date column
       var rowMonth = rowDate.slice(0, 7); // Extract YYYY-MM format

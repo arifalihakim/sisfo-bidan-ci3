@@ -62,7 +62,6 @@
                       data-tgldaftar="<?=indo_date($data->tglDaftar)?>"
                     ><i class="fas fa-eye"></i></a>
                     <a href="<?= site_url('pasien/edit/'.$data->noRm); ?>" class="btn btn-outline-primary btn-sm"><i class="fas fa-edit"></i></a>
-                    <!-- <a href="<?= site_url('pasien/delete/'.$data->noRm); ?>" class="btn btn-outline-danger btn-sm" onclick="return confirm('Yakin ingin hapus?');"><i class="fas fa-trash-alt"></i></a> -->
                     <button class="btn btn-outline-danger btn-sm delete-btn" data-href="<?= base_url('pasien/delete/'.$data->noRm); ?>">
                         <i class="fas fa-trash-alt"></i>
                     </button>

@@ -114,26 +114,6 @@
                     </div>
                   </div>
                   <div class="row">
-                    <!-- <div class="col-md-2">
-                      <div class="form-group">
-                        <label class="pb-3">Buku KIA *</label>
-                        <div class="row">
-                          <div class="col">
-                            <div class="custom-control custom-radio">
-                              <input <?= set_radio('kia', 'Baru'); ?> value="Baru" class="custom-control-input" type="radio" id="baru" name="kia">
-                              <label for="baru" class="custom-control-label">Baru</label>
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="custom-control custom-radio">
-                              <input <?= set_radio('kia', 'Punya'); ?> value="Punya" class="custom-control-input" type="radio" id="punya" name="kia">
-                              <label for="punya" class="custom-control-label">Punya</label>
-                            </div>
-                          </div>
-                        </div>
-                        <?= form_error('kia'); ?>
-                      </div>
-                    </div> -->
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="diagnosa">Diagnosa *</label>

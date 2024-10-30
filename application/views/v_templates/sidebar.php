@@ -97,7 +97,6 @@
     </div>
   </aside>
 
-  <!-- assets jquery harus diatas content untuk dapat menampilkan data di modal pop up -->
   <script src="<?= base_url()?>assets/plugins/jquery/jquery.min.js"></script>
   <script src="<?= base_url()?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 

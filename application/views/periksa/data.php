@@ -65,19 +65,9 @@
                   <td width="6%" class="text-right"><?=!empty($row->tfu) ? $row->tfu." cm" : "-"?></td>
                   <td width="8%" class="text-right"><?=!empty($row->djj) ? $row->djj." &times;/mnt" : "-"?></td>
                   <td width="20%"><?=$row->diagnosa?></td>
-                  <!-- <td>
-                    <?php 
-                    $statusPeriksa = $this->RegistrasiModel->getPeriksaIdByRegistrasi($row->noRegistrasi);
-                    if ($statusPeriksa) { ?>
-                      <span class="text-success">Sudah</span>
-                    <?php } else { ?>
-                      <span class="text-danger">Belum</span>
-                    <?php  } ?>
-                  </td> -->
                   <td width="12%" class="text-center aksi-column">
                     <div class="btn-group">
                       <?php 
-                      // Ambil data resep untuk periksa ini
                       $resepExist = $this->PeriksaModel->resepExistsOnPeriksa($row->idPeriksa);
                       if ($resepExist) { ?>
                         <a href="<?= site_url('periksa/detail/') . $row->idPeriksa; ?>" class="btn btn-outline-info btn-sm">
