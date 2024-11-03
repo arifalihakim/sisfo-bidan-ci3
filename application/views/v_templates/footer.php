@@ -1,5 +1,4 @@
   </div>
-  <!-- /.content-wrapper -->
 
   <div id="logoutModal" class="fade modal">
     <div class="modal-dialog">
@@ -33,15 +32,11 @@
     </div>
   </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
+  <aside class="control-sidebar"></aside>
 
-<!-- Assets js -->
+</div>
+
+
 <script src="<?= base_url()?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= base_url()?>assets/plugins/moment/moment.min.js"></script>
 <script src="<?= base_url()?>assets/plugins/daterangepicker/daterangepicker.js"></script>
@@ -71,7 +66,6 @@
 
 <?=$this->session->flashdata('pesan')?>
 
-<!-- script chart -->
 <?php
 $u1 = $this->uri->segment(1);
 $u2 = $u1 . '/' . $this->uri->segment(2);
