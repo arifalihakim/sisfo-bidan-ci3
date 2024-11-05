@@ -1,6 +1,6 @@
     <section class="content">
       <div class="container-fluid">
-        <div class="card shadow-lg" style="background-color: #40E0D0;">
+        <div class="card shadow-lg" style="background-color: #B0E0E6;">
           <div class="card-header">
             <div class="row">
               <div class="col d-flex">

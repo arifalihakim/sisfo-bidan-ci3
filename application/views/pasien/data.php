@@ -48,7 +48,7 @@
                 <td><?=$data->alamat?></td>
                 <td class="text-center" width="15%">
                   <div class="btn-group">
-                    <a href="<?= site_url('pasien/pasienView/') . $data->noRm; ?>" class="btn btn-sm" style="background-color: #ffc0cb;">Riwayat</a>
+                    <a href="<?= site_url('pasien/pasienView/') . $data->noRm; ?>" class="btn btn-sm" style="background-color: #B0E0E6;">Riwayat</a>
                   </div>
                   <div class="btn-group">
                     <a id="show_dtl" class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#modal-detail"
