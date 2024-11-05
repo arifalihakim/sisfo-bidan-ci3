@@ -157,7 +157,7 @@
     <div class="modal fade" id="modal-detail">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <div class="modal-header bg-fuchsia pb-2 pt-2">
+          <div class="modal-header bg-info pb-2 pt-2">
             <h4 class="modal-title">Detail Periksa Pasien</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>

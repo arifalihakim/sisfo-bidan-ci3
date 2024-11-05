@@ -26,7 +26,7 @@
                   <th style="width: 10px">Kode</th>
                   <th>Nama Obat</th>
                   <th>Harga</th>
-                  <th>Stok</th>
+                  <th width="12%">Stok</th>
                   <th>Keterangan</th>
                   <th class="text-center">Aksi</th>
                 </tr>
@@ -38,13 +38,19 @@
                 <tr>
                   <td><?=$row->kdObat?></td>
                   <td width="20%"><?=$row->nmObat?></td>
-                  <td width="10%" class="text-right"><?=indo_currency($row->hargaObat)?></td>
-                  <td class="text-center">
-                    <?= $row->stok ?>
-                    <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" 
+                  <td width="12%" class="text-right"><?=indo_currency($row->hargaObat)?></td>
+                  <td class="text-center" width="15%">
+                    <div class="row">
+                      <div class="col">
+                        <?= $row->stok ?>    
+                      </div>
+                      <div class="col">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" 
                             data-target="#modalTambahStok" 
                             data-kdobat="<?= $row->kdObat ?>" data-stok="<?= $row->stok ?>">Tambah
-                    </button>
+                        </button>    
+                      </div>
+                    </div>
                   </td>
                   <td><?=$row->ket?></td>
                   <td width="10%" class="text-center">
