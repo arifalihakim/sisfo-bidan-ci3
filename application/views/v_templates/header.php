@@ -89,7 +89,7 @@
         position: absolute;
         width: 0;
         height: 100%;
-        background-color: fuchsia; /* Warna biru untuk progress bar */
+        background-color: #40E0D0; /* Warna biru untuk progress bar */
         animation: loading 2s infinite; /* Animasi untuk loading bar */
       }
 

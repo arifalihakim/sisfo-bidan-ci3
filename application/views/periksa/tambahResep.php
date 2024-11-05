@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="card shadow-lg">
-          <div class="card-header bg-fuchsia">
+          <div class="card-header bg-info">
             <h3 class="card-title">Tambah Resep</h3>
             <div class="card-tools">
               <a onclick="history.go(-1);" class="btn btn-tool">
@@ -72,7 +72,7 @@
               </div>
             </div>
             <div class="text-right">
-              <button type="submit" class="btn bg-fuchsia">Simpan Resep</button>
+              <button type="submit" class="btn bg-info">Simpan Resep</button>
               <button type="reset" class="btn btn-default">Reset</button>
             </div>
             <?= form_close(); ?>

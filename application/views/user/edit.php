@@ -3,7 +3,7 @@
         <div class="row">
           <div class="col-md-6">
             <div class="card shadow-lg">
-              <div class="card-header bg-fuchsia">
+              <div class="card-header bg-info">
                 <h3 class="card-title">Form <?= $title; ?></h3>
                 <div class="card-tools">
                   <a href="<?= site_url('user') ?>" class="btn btn-tool">
@@ -57,7 +57,7 @@
                     <small class="mt-1 mb-0">(Biarkan kosong jika tidak diganti)</small>
                   </div>
                   <div class="text-right">
-                    <button type="submit" class="btn bg-fuchsia">Simpan</button>
+                    <button type="submit" class="btn bg-info">Simpan</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                   </div>
                 <?= form_close(); ?>

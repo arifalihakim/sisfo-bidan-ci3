@@ -7,10 +7,10 @@
                 <h3 class="card-title align-self-center">Tabel <?= $title; ?></h3>
               </div>
               <div class="col text-right">
-                <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#stokModal">
+                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#stokModal">
                   <i class="fas fa-eye"></i> Data Stok Obat
                 </button>
-                <a href="<?= site_url('obat/add'); ?>" class="btn btn-sm bg-fuchsia">
+                <a href="<?= site_url('obat/add'); ?>" class="btn btn-sm bg-info">
                   <i class="fas fa-plus"></i> Tambah Data
                 </a>
                 <a href="<?= site_url('laporan/obat'); ?>" target="_blank" class="btn btn-sm btn-default">

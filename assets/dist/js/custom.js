@@ -41,8 +41,8 @@ $(function() {
         searchable: false
       }],
       initComplete: function () {
-        $('.datatable thead th').addClass('bg-fuchsia');
-        $('.dt-buttons .buttons-excel, .dt-buttons .buttons-print').addClass('bg-fuchsia');
+        $('.datatable thead th').addClass('bg-info');
+        $('.dt-buttons .buttons-excel, .dt-buttons .buttons-print').addClass('bg-info');
       }
     });
     table.buttons().container().appendTo('#dataTable_wrapper .col-md-5:eq(0)');

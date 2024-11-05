@@ -1,4 +1,4 @@
-    <nav class="main-header navbar navbar-expand navbar-dark bg-<?= (userdata('role') != 1) ? 'fuchsia' : 'secondary' ?> shadow-md">
+    <nav class="main-header navbar navbar-expand navbar-dark bg-<?= (userdata('role') != 1) ? 'info' : 'secondary' ?> shadow-md">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
@@ -40,15 +40,15 @@
               </div>
             </div>
             <a href="<?= site_url('user/ubahProfil') ?>" class="dropdown-item">
-              <i class="fas fa-fw fa-user-edit text-fuchsia"></i>
+              <i class="fas fa-fw fa-user-edit text-info"></i>
               Ubah Profil
             </a>
             <a href="<?= site_url('user/ubahPassword') ?>" class="dropdown-item">
-              <i class="fas fa-fw fa-exchange-alt text-fuchsia"></i>
+              <i class="fas fa-fw fa-exchange-alt text-info"></i>
               Ubah Password
             </a>
             <a href="#logoutModal" class="dropdown-item" data-toggle="modal">
-              <i class="fas fa-fw fa-sign-out-alt text-fuchsia"></i>
+              <i class="fas fa-fw fa-sign-out-alt text-info"></i>
               Logout
             </a>
           </div>

@@ -68,7 +68,7 @@
                     <input type="text" id="captcha" name="captcha" class="form-control ml-2 mt-2" placeholder="Enter Captcha">
                     <?=form_error('captcha')?>
                 </div>
-                <button type="submit" class="btn btn-block bg-fuchsia">Login</button>
+                <button type="submit" class="btn btn-block bg-info">Login</button>
                 <?=form_close()?>
             </div>
         </div>

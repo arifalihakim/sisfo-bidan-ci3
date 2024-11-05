@@ -1,4 +1,4 @@
-  <aside class="main-sidebar sidebar-dark-<?= (userdata('role') != 1) ? 'fuchsia' : 'secondary' ?> elevation-2 shadow-lg">
+  <aside class="main-sidebar sidebar-dark-<?= (userdata('role') != 1) ? 'info' : 'secondary' ?> elevation-2 shadow-lg">
     <a href="<?=site_url('dashboard')?>" class="brand-link">
       <img src="<?= base_url().'assets/dist/img/ikatan_bidan.png'?>" alt="Logo" class="brand-image img-circle ml-2" width="200%">
       <span class="brand-text font-weight-light">E-Bidan S.Aryanti</span>
@@ -14,7 +14,7 @@
         >
         </div>
         <div class="info pt-2">
-          <a href="<?=site_url('user/ubahProfil') ?>" class="<?= menu_state('user', 'ubahProfil', 'badge badge-lg badge-light text-fuchsia') ?>">
+          <a href="<?=site_url('user/ubahProfil') ?>" class="<?= menu_state('user', 'ubahProfil', 'badge badge-lg badge-light text-info') ?>">
             <?=userdata('fullName')?>
           </a>
         </div>

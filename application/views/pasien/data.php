@@ -7,7 +7,7 @@
             <h3 class="card-title align-self-center">Tabel <?= $title; ?></h3>
           </div>
           <div class="col text-right">
-            <a href="<?= site_url('pasien/add'); ?>" class="btn btn-sm bg-fuchsia">
+            <a href="<?= site_url('pasien/add'); ?>" class="btn btn-sm bg-info">
               <i class="fas fa-plus"></i> Daftar Pasien Baru
             </a>
             <a href="<?= site_url('laporan/pasien'); ?>" target="_blank" class="btn btn-sm btn-default">
@@ -80,7 +80,7 @@
 <div class="modal fade" id="modal-detail">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
-      <div class="modal-header bg-fuchsia pb-2 pt-2">
+      <div class="modal-header bg-info pb-2 pt-2">
         <h4 class="modal-title">Detail Pasien</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>

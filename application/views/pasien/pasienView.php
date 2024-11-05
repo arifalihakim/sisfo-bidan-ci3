@@ -1,12 +1,12 @@
     <section class="content">
       <div class="container-fluid">
-        <div class="card shadow-lg" style="background-color: #ffe9f4;">
+        <div class="card shadow-lg" style="background-color: #40E0D0;">
           <div class="card-header">
             <div class="row">
               <div class="col d-flex">
                 <h3 class="card-title align-self-center">
                   <?= $title; ?>
-                  <span class="text-bold" style="font-size: 1.1rem; font-style: italic; color: fuchsia;" >
+                  <span class="text-bold" style="font-size: 1.1rem; font-style: italic; color: #008080;" >
                     <?php if (!empty($pasienView)) { ?>
                      - <?= $pasienView[0]->nmPasien; ?> - <?= $pasienView[0]->noRm; ?>
                     <?php } ?>  
@@ -14,7 +14,7 @@
                 </h3>
               </div>
               <div class="col text-right">
-                <a href="<?= site_url('periksa/add'); ?>" class="btn btn-sm bg-fuchsia">
+                <a href="<?= site_url('periksa/add'); ?>" class="btn btn-sm bg-info">
                   <i class="fas fa-plus"></i> Tambah Periksa
                 </a>
                 <a href="<?= site_url('laporan/cetakRiwayatPeriksa/').$noRm; ?>" target="_blank" class="btn btn-sm btn-default">

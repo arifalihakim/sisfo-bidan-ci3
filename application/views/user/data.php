@@ -7,7 +7,7 @@
                 <h3 class="card-title align-self-center">Tabel <?= $title; ?></h3>
               </div>
               <div class="col text-right">
-                <a href="<?= site_url('user/add'); ?>" class="btn btn-sm bg-fuchsia">
+                <a href="<?= site_url('user/add'); ?>" class="btn btn-sm bg-info">
                   <i class="fas fa-plus"></i> Tambah User
                 </a>
                 <a href="<?= site_url('user/cetakBidan'); ?>" target="_blank" class="btn btn-sm btn-default">

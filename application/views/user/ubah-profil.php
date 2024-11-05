@@ -2,28 +2,28 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-            <div class="card card-fuchsia card-outline shadow-lg pb-2">
+            <div class="card card-info card-outline shadow-lg pb-2">
               <div class="card-body">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle bg-fuchsia" src="<?= (userdata('image') != null) ? base_url('uploads/foto_profil/' . userdata('image')) : base_url().'uploads/no_image.jpg' ?>" alt="User profile picture">
+                  <img class="profile-user-img img-fluid img-circle bg-info" src="<?= (userdata('image') != null) ? base_url('uploads/foto_profil/' . userdata('image')) : base_url().'uploads/no_image.jpg' ?>" alt="User profile picture">
                 </div>
                 <h3 class="profile-username text-center"><?= userdata('fullName') ?></h3>
                 <p class="text-muted text-center">Role : <?= (userdata('role') != 1) ? 'Bidan' : 'Super Admin' ?></p>
                 <hr>
-                <strong><i class="fas fa-user text-fuchsia mr-1"></i> Username</strong>
+                <strong><i class="fas fa-user text-info mr-1"></i> Username</strong>
                 <p class="text-muted"><?= userdata('username') ?></p>
                 <hr>
-                <strong><i class="fas fa-phone text-fuchsia mr-1"></i> Nomor Telepon</strong>
+                <strong><i class="fas fa-phone text-info mr-1"></i> Nomor Telepon</strong>
                 <p class="text-muted"><?= userdata('noTelp') ?></p>
                 <hr>
-                <strong><i class="fas fa-map-marker-alt text-fuchsia mr-1"></i> Alamat</strong>
+                <strong><i class="fas fa-map-marker-alt text-info mr-1"></i> Alamat</strong>
                 <p class="text-muted"><?= userdata('alamat') ?></p>
               </div>
             </div>
           </div>  
           <div class="col-md-9">
             <div class="card shadow-md">
-              <div class="card-header bg-fuchsia">
+              <div class="card-header bg-info">
                   <h3 class="card-title"><?= $title; ?></h3>
                 <div class="card-tools">
                   <a href="<?= site_url('dashboard') ?>" class="btn btn-tool">
@@ -75,7 +75,7 @@
                   </div>
                   
                   <div class="text-right">
-                    <button type="submit" class="btn bg-fuchsia">Simpan Perubahan</button>
+                    <button type="submit" class="btn bg-info">Simpan Perubahan</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                   </div>
                 <?= form_close(); ?>

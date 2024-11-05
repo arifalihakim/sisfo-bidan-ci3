@@ -17,12 +17,12 @@
                 <label for="tgl2">sampai</label>
                 <input type="date" name="tgl2" id="tgl2" value="<?= set_value('tgl2', isset($tgl2) ? $tgl2 : ''); ?>" class="form-control form-control-sm mx-1" required>
               </div>
-              <button type="submit" class="btn btn-sm bg-fuchsia mx-1">Tampilkan</button>
+              <button type="submit" class="btn btn-sm bg-info mx-1">Tampilkan</button>
               <a href="<?=site_url('registrasi');?>" class="btn btn-sm btn-secondary">Reset</a>
             </form>
           </div>
           <div class="col text-right action-buttons">
-            <a href="<?= site_url('registrasi/add'); ?>" class="btn btn-sm bg-fuchsia">
+            <a href="<?= site_url('registrasi/add'); ?>" class="btn btn-sm bg-info">
               <i class="fas fa-plus"></i> Register
             </a>
             <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#cetakModal">
@@ -100,7 +100,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-sm bg-fuchsia">Cetak</button>
+          <button type="submit" class="btn btn-sm bg-info">Cetak</button>
         </div>
       </form>
     </div>

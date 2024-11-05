@@ -97,7 +97,7 @@ if ($u1 == "dashboard" || $u2 == "admin/index") { ?>
   $(function() {
     'use strict'
     var ticksStyle = {
-      fontColor: '#495057',
+      fontColor: '#40E0D0',
       fontStyle: 'bold'
     }
     var mode = 'index'
@@ -110,15 +110,15 @@ if ($u1 == "dashboard" || $u2 == "admin/index") { ?>
         datasets: [{
           data: JSON.parse("<?= json_encode($pr) ?>"),
           backgroundColor: 'transparent',
-          borderColor: 'fuchsia',
-          pointBorderColor: 'fuchsia',
-          pointBackgroundColor: 'fuchsia',
+          borderColor: '#40E0D0',
+          pointBorderColor: '#40E0D0',
+          pointBackgroundColor: '#40E0D0',
           fill: false,
           lineTension: 0.3,
           pointRadius: 3,
           pointHoverRadius: 3,
-          pointHoverBackgroundColor: "#5a5c69",
-          pointHoverBorderColor: "#5a5c69",
+          pointHoverBackgroundColor: "##40E0D0",
+          pointHoverBorderColor: "##40E0D0",
           pointHitRadius: 10,
           pointBorderWidth: 2,
         }]
@@ -150,8 +150,8 @@ if ($u1 == "dashboard" || $u2 == "admin/index") { ?>
               }
             },
             gridLines: {
-              color: "rgb(234, 236, 244)",
-              zeroLineColor: "rgb(234, 236, 244)",
+              color: "rgb(48, 206, 209)",
+              zeroLineColor: "rgb(224, 255, 255)",
               drawBorder: false,
               borderDash: [2],
               zeroLineBorderDash: [2]
@@ -162,12 +162,12 @@ if ($u1 == "dashboard" || $u2 == "admin/index") { ?>
           display: false
         },
         tooltips: {
-          backgroundColor: "#ffe9f4",
-          bodyFontColor: "#858796",
+          backgroundColor: "  #B0E0E6",
+          bodyFontColor: "  #B0E0E66",
           titleMarginBottom: 10,
           titleFontColor: '#6e707e',
           titleFontSize: 14,
-          borderColor: '#dddfeb',
+          borderColor: '#00CED1',
           borderWidth: 1,
           xPadding: 15,
           yPadding: 15,
