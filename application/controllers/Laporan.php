@@ -66,6 +66,20 @@ class Laporan extends CI_Controller
         $this->load->view('laporan/obat/cetak_obat',$data);
     }
 
+    public function cetakObatMasuk()
+    {
+        $data['title'] = "Data Stok Obat Masuk";
+        $data['stok_obat_masuk'] = $this->MainModel->get('stok_obat_masuk');
+        $this->load->view('laporan/obat/cetak_obat_masuk',$data);
+    }
+
+    public function cetakObatKeluar()
+    {
+        $data['title'] = "Data Stok Obat Keluar";
+        $data['stok_obat_keluar'] = $this->MainModel->get('stok_obat_keluar');
+        $this->load->view('laporan/obat/cetak_obat_keluar',$data);
+    }
+
     public function pasienFilter()
     {
         $data['title'] = "Laporan Data Obat";

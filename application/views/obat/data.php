@@ -103,9 +103,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="stokModalLabel">Data Stok Obat</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="col text-right">
+          <a href="<?= site_url('laporan/cetakObatMasuk'); ?>" target="_blank" class="btn btn-sm btn-default">
+            <i class="fas fa-print"></i> Cetak Obat Masuk
+          </a>
+          <a href="<?= site_url('laporan/cetakObatKeluar'); ?>" target="_blank" class="btn btn-sm btn-default">
+            <i class="fas fa-print"></i> Cetak Obat Keluar
+          </a>
+        </div>
+        
       </div>
       <div class="modal-body">
         <ul class="nav nav-tabs" id="stokTab" role="tablist">

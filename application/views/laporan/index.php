@@ -6,7 +6,7 @@
 
         <div class="col-md-6">
           <div class="card shadow-lg">
-            <div class="card-header collapsed-card bg-fuchsia">
+            <div class="card-header collapsed-card bg-info">
               <div class="d-flex justify-content-between">
                 <div class="text-left">
                   <h3 class="card-title">Laporan Data Pemeriksaan Filter</h3>
@@ -29,7 +29,7 @@
                 <?= form_error('tanggal'); ?>
               </div>
               <div class="text-right">
-                <button type="submit" target="_blank" class="btn bg-fuchsia">Cetak</button>
+                <button type="submit" target="_blank" class="btn bg-info">Cetak</button>
                 <button type="reset" class="btn btn-default">Reset</button>
               </div>
               <?= form_close(); ?>
@@ -39,7 +39,7 @@
 
         <!-- <div class="col-md-4">
           <div class="card shadow-md">
-            <div class="card-header collapsed-card bg-fuchsia">
+            <div class="card-header collapsed-card bg-info">
               <div class="d-flex justify-content-between">
                 <div class="text-left">
                   <h3 class="card-title">Laporan Data Pemeriksaan Non Filter</h3>
@@ -63,7 +63,7 @@
 
         <div class="col-md-4">
           <div class="card shadow-md">
-            <div class="card-header collapsed-card bg-fuchsia">
+            <div class="card-header collapsed-card bg-info">
               <div class="d-flex justify-content-between">
                 <div class="text-left">
                   <h3 class="card-title">Laporan Data Pasien</h3>
@@ -85,7 +85,7 @@
         </div>
         <div class="col-md-4">
           <div class="card shadow-md">
-            <div class="card-header collapsed-card bg-fuchsia">
+            <div class="card-header collapsed-card bg-info">
               <div class="d-flex justify-content-between">
                 <div class="text-left">
                   <h3 class="card-title">Laporan Data Obat</h3>
@@ -96,15 +96,26 @@
               </div>
             </div>
             <div class="card-body text-center">
-              <a href="<?= site_url('laporan/obat'); ?>" target="_blank" class="btn btn-md btn-secondary">
-                <i class="fas fa-print"></i> Cetak PDF
-              </a>
+              <div class="row">
+                <div class="col-lg-4">
+                  <a href="<?= site_url('laporan/obat'); ?>" target="_blank" class="btn btn-md btn-secondary">Master Obat
+                  </a>
+                </div>
+                <div class="col-lg-4">
+                  <a href="<?= site_url('laporan/cetakObatMasuk'); ?>" target="_blank" class="btn btn-md btn-secondary"></i> Obat Masuk
+                  </a>
+                </div>
+                <div class="col-lg-4">
+                   <a href="<?= site_url('laporan/cetakObatKeluar'); ?>" target="_blank" class="btn btn-md btn-secondary"></i> Obat Keluar
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card shadow-md">
-            <div class="card-header collapsed-card bg-fuchsia">
+            <div class="card-header collapsed-card bg-info">
               <div class="d-flex justify-content-between">
                 <div class="text-left">
                   <h3 class="card-title">Laporan Data Kunjungan</h3>
@@ -146,7 +157,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-sm bg-fuchsia">Cetak</button>
+          <button type="submit" class="btn btn-sm bg-info">Cetak</button>
         </div>
       </form>
     </div>
@@ -172,7 +183,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-sm bg-fuchsia">Cetak</button>
+          <button type="submit" class="btn btn-sm bg-info">Cetak</button>
         </div>
       </form>
     </div>

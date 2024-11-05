@@ -232,7 +232,7 @@ if ($u1 == "dashboard" || $u2 == "admin/index") { ?>
         searchable: false
       }],
       initComplete: function () {
-        $('.datatable thead th').addClass('bg-info');
+        $('.datatable thead th').addClass('bg-light');
         $('.dt-buttons .buttons-excel, .dt-buttons .buttons-print').addClass('bg-info');
       }
     });
