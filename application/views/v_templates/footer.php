@@ -184,7 +184,11 @@ if ($u1 == "dashboard" || $u2 == "admin/index") { ?>
       }
     })
   });
+</script>
 
+<?php } ?>
+
+<script type="text/javascript">
   $(function() {
     $('.gijgo').datepicker({
       uiLibrary: 'bootstrap4',
@@ -242,7 +246,7 @@ if ($u1 == "dashboard" || $u2 == "admin/index") { ?>
   });
 </script>
 
-<?php } ?>
+
 
 </body>
 </html>
