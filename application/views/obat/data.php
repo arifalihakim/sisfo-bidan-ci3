@@ -45,7 +45,7 @@
                         <?= $row->stok ?>    
                       </div>
                       <div class="col">
-                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" 
+                        <button type="button" class="btn btn-xs btn-success" data-toggle="modal" 
                             data-target="#modalTambahStok" 
                             data-kdobat="<?= $row->kdObat ?>" data-stok="<?= $row->stok ?>">Tambah
                         </button>    
@@ -95,7 +95,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-            <button type="submit" class="btn btn-primary">Tambah Stok</button>
+            <button type="submit" class="btn btn-success">Tambah Stok</button>
           </div>
         </form>
       </div>
