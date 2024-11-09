@@ -126,7 +126,6 @@
         <div class="card">
             <div class="card-body login-card-body">
                 <?=$this->session->flashdata('msg')?>
-                <p class="login-box-msg">Login untuk menggunakan aplikasi</p>
                 <?=form_open()?>
                 <div class="form-group">
                     <div class="input-group">
