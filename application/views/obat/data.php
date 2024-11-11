@@ -110,11 +110,11 @@
       <div class="modal-header">
         <h5 class="modal-title" id="stokModalLabel">Data Stok Obat</h5>
         <div class="col text-right">
-          <a href="<?= site_url('laporan/cetakObatMasuk'); ?>" target="_blank" class="btn btn-sm btn-default">
-            <i class="fas fa-print"></i> Cetak Obat Masuk
+          <a href="<?= site_url('laporan/cetakObatMasuk'); ?>" target="_blank" class="btn btn-sm btn-success">
+            <i class="fas fa-print"></i> Obat Masuk
           </a>
-          <a href="<?= site_url('laporan/cetakObatKeluar'); ?>" target="_blank" class="btn btn-sm btn-default">
-            <i class="fas fa-print"></i> Cetak Obat Keluar
+          <a href="<?= site_url('laporan/cetakObatKeluar'); ?>" target="_blank" class="btn btn-sm btn-warning">
+            <i class="fas fa-print"></i> Obat Keluar
           </a>
         </div>
         
@@ -132,10 +132,10 @@
         <div class="tab-content" id="stokTabContent">
           <!-- Stok Obat Masuk Tab -->
           <div class="tab-pane fade show active" id="stokMasuk" role="tabpanel" aria-labelledby="stokMasuk-tab">
-            <div class="d-flex align-items-center mt-3 mb-2">
-              <label for="filterMasukMonth">Filter Bulan : </label>
+            <div class="d-flex align-items-center mt-3 mb-1">
+              <label for="filterMasukMonth" class="mr-2">Filter Bulan : </label>
               <input type="month" id="filterMasukMonth" class="form-control" style="width: 200px;">
-              <button id="filterMasukButton" class="btn btn-primary">Cari</button>
+              <button id="filterMasukButton" class="btn btn-primary ml-1">Cari</button>
             </div>
             
             <div class="table-responsive mt-3">
