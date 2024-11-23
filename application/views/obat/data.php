@@ -165,10 +165,10 @@
           </div>
 
           <div class="tab-pane fade" id="stokKeluar" role="tabpanel" aria-labelledby="stokKeluar-tab">
-            <div class="d-flex align-items-center mt-3 mb-2">
-              <label for="filterKeluarMonth">Filter Bulan :</label>
+            <div class="d-flex align-items-center mt-3 mb-1">
+              <label for="filterKeluarMonth" class="mr-2">Filter Bulan : </label>
               <input type="month" id="filterKeluarMonth" class="form-control" style="width: 200px;">
-              <button id="filterKeluarButton" class="btn btn-primary">Cari</button>
+              <button id="filterKeluarButton" class="btn btn-primary ml-1">Cari</button>
             </div>
             
             <div class="table-responsive mt-3">
