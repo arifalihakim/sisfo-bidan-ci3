@@ -41,7 +41,7 @@
                   <th>Keluhan</th>
                   <th>T.Lanjut</th>
                   <th>Diagnosa</th>
-                  <th>Aksi</th>
+                  <!-- <th>Aksi</th> -->
                 </tr>
               </thead>
               <tbody>
@@ -61,7 +61,7 @@
                       <td width="20%"><?= $row->diagnosa ?></td>
                       <td><?= $row->keluhan ?></td>
                       <td><?= $row->tindakLanjut ?></td>
-                      <td width="12%">
+                      <!-- <td width="12%">
                         <div class="btn-group">
                           <a target="_blank" href="<?= site_url('laporan/detailPr/').$row->idPeriksa; ?>" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i>
@@ -72,7 +72,7 @@
                             <i class="fas fa-eye"></i>
                           </a>
                         </div>
-                      </td>
+                      </td> -->
                     </tr>
                   <?php } ?>
                 <?php } ?>
