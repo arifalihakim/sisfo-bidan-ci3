@@ -16,88 +16,73 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
         $this->form_validation->set_rules('captcha', 'Captcha', 'required|trim');
+        return $this->form_validation->run();
     }
 
     private function _check_login()
     {
-        if ($this->session->has_userdata('user')) {
-            redirect('dashboard');
+        if ($this->session->has_userdata('user')) redirect('dashboard');
+    }
+
+    private function _increment_login_attempts($user = null)
+    {
+        $login_attempts = $this->session->userdata('login_attempts') + 1;
+        $this->session->set_userdata('login_attempts', $login_attempts);
+
+        if ($user && $login_attempts >= 3) {
+            $this->MainModel->update('user', ['active' => 0], ['idUser' => $user->idUser]);
+            setMsg("danger", "Password salah 3x. Akun dinonaktifkan. Hubungi Admin!");
+        } else {
+            setMsg("danger", "Password salah!");
         }
+    }
+
+    private function _verify_captcha($inputCaptcha)
+    {
+        if (strtolower($inputCaptcha) !== strtolower($this->session->userdata('captcha'))) {
+            setMsg("danger", "Captcha tidak valid!");
+            redirect('auth');
+        }
+    }
+
+    private function _process_login($user, $password)
+    {
+        if (!$user || !password_verify($password, $user->password)) {
+            $this->_increment_login_attempts($user);
+            redirect('auth');
+        }
+
+        if ($user->active != 1) {
+            setMsg("danger", "Akun non-aktif. Hubungi admin.");
+            redirect('auth');
+        }
+
+        $this->session->set_userdata([
+            'user' => $user, 
+            'is_online' => 1
+        ]);
+        $this->MainModel->update('user', 
+            ['is_online' => 1, 'last_activity' => date('Y-m-d H:i:s')], 
+            ['idUser' => $user->idUser]
+        );
+        $this->session->unset_userdata('login_attempts');
+        msgBox('auth');
+        redirect('dashboard');
     }
 
     public function index()
     {
         $this->_check_login();
         $data['title'] = "Login - E-Bidan S.Aryanti";
-        $this->_validate();
 
-        if ($this->form_validation->run() == false) {
+        if (!$this->_validate()) {
             $this->load->view('auth/login', $data);
             return;
         }
 
-        // Validasi Captcha
-        $inputCaptcha = strtolower($this->input->post('captcha'));
-        $sessionCaptcha = strtolower($this->session->userdata('captcha'));
-        if ($inputCaptcha !== $sessionCaptcha) {
-            setMsg("danger", "Captcha tidak Valid!");
-            redirect('auth');
-        }
-
-        // Proses login
-        $input = $this->input->post(null, true);
-        $username = $input['username'];
-        $password = $input['password'];
-        $where = ['username' => $username];
-        $user = $this->MainModel->get_where('user', $where);
-
-        if (!$user) {
-            $this->_increment_login_attempts();
-            setMsg("danger", "Username tidak terdaftar");
-            redirect('auth');
-        }
-
-        if (!password_verify($password, $user->password)) {
-            $this->_increment_login_attempts($user);
-            redirect('auth');
-        }
-
-        if ($user->active != 1) {
-            setMsg("danger", "Akun anda non-aktif. Silahkan hubungi admin.");
-            redirect('auth');
-        }
-
-        // Set session dan update status online
-        $session = [
-            'user' => $user,
-            'is_online' => 1
-        ];
-        $this->session->set_userdata($session);
-        
-        // Update status online dan last_activity
-        $this->MainModel->update('user', [
-            'is_online' => 1,
-            'last_activity' => date('Y-m-d H:i:s')
-        ], ['idUser' => $user->idUser]);
-
-        $this->session->unset_userdata('login_attempts');
-        msgBox('auth');
-        redirect('dashboard');
-    }
-
-
-    private function _increment_login_attempts($user = null)
-    {
-        $login_attempts = $this->session->userdata('login_attempts');
-        $login_attempts = $login_attempts ? $login_attempts + 1 : 1;
-        $this->session->set_userdata('login_attempts', $login_attempts);
-
-        if ($user && $login_attempts >= 3) {
-            $this->MainModel->update('user', ['active' => 0], ['idUser' => $user->idUser]);
-            setMsg("danger", "Kamu memasukkan password salah sebanyak 3x. Akunmu di non aktifkan! Hubungi Admin!");
-        } else {
-            setMsg("danger", "Password salah!");
-        }
+        $this->_verify_captcha($this->input->post('captcha'));
+        $user = $this->MainModel->get_where('user', ['username' => $this->input->post('username', true)]);
+        $this->_process_login($user, $this->input->post('password', true));
     }
 
     public function logout()
