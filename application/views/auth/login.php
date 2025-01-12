@@ -99,7 +99,7 @@
         }
     </style>
     <script src="<?=base_url()?>assets/plugins/jquery/jquery.min.js"></script>
-    <!-- <script>
+    <script>
         function loadCaptcha() {
             $.get('<?= base_url('captcha/generate') ?>', function(data) {
                 $('#captcha-image').html(data);
@@ -110,7 +110,7 @@
             loadCaptcha();
             setInterval(loadCaptcha, 60000);
         });
-    </script> -->
+    </script>
 </head>
 <body class="hold-transition login-page">
     <div class="login-box">
@@ -150,11 +150,11 @@
                     <?=form_error('password')?>
                 </div>
                 <!-- Captcha -->
-                <!-- <div class="form-group captcha-container">
+                <div class="form-group captcha-container">
                     <div id="captcha-image"></div>
                     <input type="text" id="captcha" name="captcha" class="form-control mt-2" placeholder="Enter Captcha">
-                    <?=form_error('captcha')?>
-                </div> -->
+                </div>
+                <div class="mb-2 mt-0 pt-0"><?=form_error('captcha')?></div>
                 <button type="submit" class="btn btn-block">Login</button>
                 <?=form_close()?>
             </div>

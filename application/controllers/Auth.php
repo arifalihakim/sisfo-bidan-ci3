@@ -15,7 +15,7 @@ class Auth extends CI_Controller
     {
         $this->form_validation->set_rules('username', 'Username', 'required|trim');
         $this->form_validation->set_rules('password', 'Password', 'required|trim');
-        // $this->form_validation->set_rules('captcha', 'Captcha', 'required|trim');
+        $this->form_validation->set_rules('captcha', 'Captcha', 'required|trim');
         return $this->form_validation->run();
     }
 
@@ -37,13 +37,13 @@ class Auth extends CI_Controller
         }
     }
 
-    // private function _verify_captcha($inputCaptcha)
-    // {
-    //     if (strtolower($inputCaptcha) !== strtolower($this->session->userdata('captcha'))) {
-    //         setMsg("danger", "Captcha tidak valid!");
-    //         redirect('auth');
-    //     }
-    // }
+    private function _verify_captcha($inputCaptcha)
+    {
+        if (strtolower($inputCaptcha) !== strtolower($this->session->userdata('captcha'))) {
+            setMsg("danger", "Captcha tidak valid!");
+            redirect('auth');
+        }
+    }
 
     private function _process_login($user, $password)
     {
@@ -80,7 +80,7 @@ class Auth extends CI_Controller
             return;
         }
 
-        // $this->_verify_captcha($this->input->post('captcha'));
+        $this->_verify_captcha($this->input->post('captcha'));
         $user = $this->MainModel->get_where('user', ['username' => $this->input->post('username', true)]);
         $this->_process_login($user, $this->input->post('password', true));
     }
@@ -100,7 +100,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('user');
         $this->session->unset_userdata('login_attempts');
         
-        setMsg("success", "Berhasil logout!");
+        setMsg("info", "Berhasil logout!");
         redirect('login');
     }
 }
